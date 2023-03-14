@@ -5,6 +5,9 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
+const upload = require('./config/upload')
+app.use('/files', express.static(upload.UPLOAD_FOLDER))
+
 const routes = require('./routes')
 app.use(routes)
 
